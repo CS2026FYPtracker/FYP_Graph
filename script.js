@@ -49,7 +49,7 @@ async function loadData() {
     }
   });
 
-// Chart for final_report
+  // Chart for final_report
   new Chart(document.getElementById('chart3'), {
     type: 'line',
     data: {
@@ -66,7 +66,45 @@ async function loadData() {
       scales: {
         x: {
           type: 'time'
-          
+        }
+      }
+    }
+  });
+
+  new Chart(document.getElementById('chart4'), {
+    type: 'line',
+    data: {
+      datasets: [
+        {
+          label: 'Outline Document',
+          data: outline_doc,
+          borderWidth: 2,
+          borderColor: 'blue',
+          fill: false,
+          tension: 0.1
+        },
+        {
+          label: 'Extended Abstract',
+          data: abstract,
+          borderWidth: 2,
+          borderColor: 'green',
+          fill: false,
+          tension: 0.1
+        },
+        {
+          label: 'Final Report',
+          data: final_report,
+          borderWidth: 2,
+          borderColor: 'red',
+          fill: false,
+          tension: 0.1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        x: {
+          type: 'time'
         }
       }
     }
