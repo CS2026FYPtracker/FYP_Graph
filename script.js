@@ -2,16 +2,14 @@ async function loadData() {
   const res = await fetch('data/data.json');
   const json = await res.json();
 
-  const labels = json.map(d => new Date(d.timestamp));
-  const outline_doc = json.map(d => d.outline);
-  const abstract = json.map(d => d.abstract);
-  const final_report = json.map(d => d.final_report);
+  // convert timestamps to Date so the time adapter can format tooltips/axis
+  const outline_doc = json.map(d => ({ x: new Date(d.timestamp), y: d.outline }));
+  const abstract = json.map(d => ({ x: new Date(d.timestamp), y: d.abstract }));
+  const final_report = json.map(d => ({ x: new Date(d.timestamp), y: d.final_report }));
 
-  // Chart for outline_doc
   new Chart(document.getElementById('chart1'), {
     type: 'line',
     data: {
-      labels,
       datasets: [{
         label: 'Outline Document',
         data: outline_doc,
@@ -24,20 +22,17 @@ async function loadData() {
     options: {
       scales: {
         x: {
-          type: 'time',
-          time: { unit: 'hour' }
+          type: 'time'
         }
       }
     }
   });
 
-  // Chart for abstract
   new Chart(document.getElementById('chart2'), {
     type: 'line',
     data: {
-      labels,
       datasets: [{
-        label: 'Abstract',
+        label: 'Extended Abstract',
         data: abstract,
         borderWidth: 2,
         borderColor: 'green',
@@ -48,18 +43,16 @@ async function loadData() {
     options: {
       scales: {
         x: {
-          type: 'time',
-          time: { unit: 'hour' }
+          type: 'time'
         }
       }
     }
   });
 
-  // Chart for final_report
+// Chart for final_report
   new Chart(document.getElementById('chart3'), {
     type: 'line',
     data: {
-      labels,
       datasets: [{
         label: 'Final Report',
         data: final_report,
@@ -72,8 +65,8 @@ async function loadData() {
     options: {
       scales: {
         x: {
-          type: 'time',
-          time: { unit: 'hour' }
+          type: 'time'
+          
         }
       }
     }
