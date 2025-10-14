@@ -4,19 +4,39 @@
 <head>
     <meta charset="utf-8">
     <title>Submission Graphs</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 </head>
 
-<body>
-    <h1>Outline Document Submission</h1>
-    <canvas id="chart1" width="800" height="400"></canvas>
-    <h1>Extended Abstract Submission</h1>
-    <canvas id="chart2" width="800" height="400"></canvas>
-    <h1>Final Project Submission</h1>
-    <canvas id="chart3" width="800" height="400"></canvas>
-    <h1>Combined Graph</h1>
-    <canvas id="chart4" width="800" height="400"></canvas>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Submission Graphs</h1>
+
+        <div class="card mb-4 shadow-sm p-3">
+            <h2 class="card-title text-center mb-3">Outline Document Submission</h2>
+            <canvas class="graph" id="chart1"></canvas>
+        </div>
+
+        <div class="card mb-4 shadow-sm p-3">
+            <h2 class="card-title text-center mb-3">Extended Abstract Submission</h2>
+            <canvas class="graph" id="chart2"></canvas>
+        </div>
+
+        <div class="card mb-4 shadow-sm p-3">
+            <h2 class="card-title text-center mb-3">Final Project Submission</h2>
+            <canvas class="graph" id="chart3"></canvas>
+        </div>
+
+        <div class="card mb-4 shadow-sm p-3">
+            <h2 class="card-title text-center mb-3">Combined Graph</h2>
+            <canvas class="graph" id="chart4"></canvas>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
